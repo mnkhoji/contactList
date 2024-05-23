@@ -1,15 +1,39 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+import React, { useContext } from "react";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+import { Hero } from "../component/hero.jsx";
+import { Context } from "../store/appContext.js";
+import { FormComponent } from "../component/formComponent.jsx";
+import { Card } from "../component/card.jsx";
+import { Link } from "react-router-dom";
+
+
+
+export const Home = () => {
+	const { store, actions } = useContext(Context)
+
+
+
+
+	return (
+		<div className="text-center mt-5">
+			<h1>Hello Rigo!</h1>
+			<Link to={'/Add'} >
+				<button>
+					add contact
+				</button>
+			</Link>
+			<link to={'/Contact'}>
+				<button>
+					go to contact list
+				</button>
+			</link>
+
+
+
+
+
+			{store.agenda?.map((contact, i) => <Card key={i} name={contact.name} email={contact.email} address={contact.address} phone={contact.phone} />)}
+
+		</div>
+	);
+}
