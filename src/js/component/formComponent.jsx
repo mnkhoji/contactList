@@ -8,7 +8,7 @@ export const FormComponent = () => {
     const handleSubmit = e =>{
         e.preventDefault();
         console.log(data)
-        if(actions.createContact(FormData)) navigate('/')
+        if(actions.createContact(data)) navigate('/')
     }
     const [data, setData] = useState({
         name: "",

@@ -22,11 +22,11 @@ export const Home = () => {
 					add contact
 				</button>
 			</Link>
-			<link to={'/Contact'}>
+			<Link to={'/Contact'}>
 				<button>
 					go to contact list
 				</button>
-			</link>
+			</Link>
 
 
 

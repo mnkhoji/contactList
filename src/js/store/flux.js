@@ -8,7 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 			loadSomeData: async () => {
 				try {
-					const resp = await fetch('https://playground.4geeks.com/contact/agendas/');
+					const resp = await fetch('https://playground.4geeks.com/contact/agendas/mike');
 					const data = await resp.json();
 					setStore({agendas: data.contacts})
 				} catch (error) {
@@ -16,8 +16,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			createContact: async (formData) => {
+				console.log(formData)
 				try {
-					const resp = await fetch('https://playground.4geeks.com/contact/agendas/contacts', {
+					const resp = await fetch('https://playground.4geeks.com/contact/agendas/mike/contacts', {
 						method: 'POST',
 						body: JSON.stringify(formData),
 						headers: {

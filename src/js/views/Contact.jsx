@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
+import { Link } from "react-router-dom";
+
 export const Contact = () => {
     const { store, actions } = useContext(Context)
     return (
@@ -11,6 +13,9 @@ export const Contact = () => {
         <ul>
         {store.agenda?.map((contact, i) => <Card key={i} name={contact.name} email={contact.email} address={contact.address} phone={contact.phone} />)}
         </ul>
+        <Link to="/">
+				<button className="btn btn-primary">Back home</button>
+			</Link>
         </>
     )
 
